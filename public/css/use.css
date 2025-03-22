@@ -1,0 +1,12 @@
+.main-theme
+{
+    background-color: #ff6c0f;
+    color: white;
+}
+.main-theme:hover{
+    background-color: rgb(255, 255, 255);
+    color: #ff6c0f;
+}
+.text-main{
+    color: #ff6c0f;
+}
