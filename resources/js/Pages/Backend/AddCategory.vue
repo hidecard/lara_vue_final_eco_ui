@@ -4,7 +4,38 @@
         layout: MasterBackend
     })
 
-    
+    import { useForm } from '@inertiajs/vue3';
+const editCategoryForm = useForm({
+    name: null,
+    description: null,
+    status: true,
+    slug: null,
+    meta_title: null,
+    meta_description: null,
+    image: null,
+    preview: null,
+});
+
+import { toast } from 'vue3-toastify';
+
+const submit = () => {
+    editCategoryForm.post(route('dash.category.add'), {
+        onSuccess: () => {
+            editCategoryForm.reset();
+            toast.success('Category added successfully');
+        },
+        onError: () => {
+            if (editCategoryForm.errors.message)
+                toast.error(editCategoryForm.errors.message);
+        },
+    });
+}
+function handleFileInput(event) {
+    editCategoryForm.preview = URL.createObjectURL(event.target.files[0]);
+    editCategoryForm.image = event.target.files[0];
+}
+
+
 </script>
 <template>
     <main class="main-content-wrapper">
