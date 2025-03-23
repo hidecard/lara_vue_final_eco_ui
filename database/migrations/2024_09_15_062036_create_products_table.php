@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('product_code')->unique();
             $table->string('product_sku')->unique();
             $table->enum('tag', ['Sale', 'Hot'])->nullable();
-            $table->integer('');
+            // $table->integer(''); // Removed empty column
             $table->string('slug')->unique();
             $table->string('meta_title');
             $table->text('meta_description');
